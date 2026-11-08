@@ -21,14 +21,14 @@ try:
         
         if key == 'w':
             print(">>> forward")
-            px.set_dir_servo_angle(0)  # 정면
+            px.set_dir_servo_angle(0)  
             px.forward(50)
             time.sleep(0.5)           
             px.stop()
             
         elif key == 's':
             print(">>> backward")
-            px.set_dir_servo_angle(0)  # 정면
+            px.set_dir_servo_angle(0)  
             px.backward(50)
             time.sleep(0.5)
             px.stop()
@@ -36,13 +36,13 @@ try:
         elif key == 'a':
             print(">>> left!")
             px.set_dir_servo_angle(-60)
-            px.forward(20) # 왼쪽으로 꺾기
+            px.forward(20) 
             time.sleep(0.5)
             px.stop()          
             
         elif key == 'd':
             print(">>> right!")
-            px.set_dir_servo_angle(60)  # 오른쪽으로 꺾기
+            px.set_dir_servo_angle(60)  
 
 ^G Help       ^O Write Out  ^F Where Is   ^K Cut        ^T Execute    ^C Location   M-U Undo
 ^X Exit       ^R Read File  ^\ Replace    ^U Paste      ^J Justify    ^/ Go To Line M-E Redo
