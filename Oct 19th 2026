@@ -1,0 +1,49 @@
+##goal:moving forward, backward, right, and left
+##tech:rasberry pi5 16ram,robot_hat,motors 
+                                        
+from picarx import Picarx
+import time
+import readchar  
+import vilib
+# Picarx object
+px = Picarx()
+pan_angle=0
+tilt_angle=0
+px.set_cam_pan_angle(pan_angle)
+px.set_cam_tilt_angle(tilt_angle)
+try:
+    try:
+       vilib.vilib.camera_start(vflip=False, hflip=False)
+    except AttributeError:
+       vilib.camera_start(vflip=False, hflip=False)
+    while True:
+        key = readchar.readkey().lower()
+        
+        if key == 'w':
+            print(">>> forward")
+            px.set_dir_servo_angle(0)  # 정면
+            px.forward(50)
+            time.sleep(0.5)           
+            px.stop()
+            
+        elif key == 's':
+            print(">>> backward")
+            px.set_dir_servo_angle(0)  # 정면
+            px.backward(50)
+            time.sleep(0.5)
+            px.stop()
+            
+        elif key == 'a':
+            print(">>> left!")
+            px.set_dir_servo_angle(-60)
+            px.forward(20) # 왼쪽으로 꺾기
+            time.sleep(0.5)
+            px.stop()          
+            
+        elif key == 'd':
+            print(">>> right!")
+            px.set_dir_servo_angle(60)  # 오른쪽으로 꺾기
+
+^G Help       ^O Write Out  ^F Where Is   ^K Cut        ^T Execute    ^C Location   M-U Undo
+^X Exit       ^R Read File  ^\ Replace    ^U Paste      ^J Justify    ^/ Go To Line M-E Redo
+
