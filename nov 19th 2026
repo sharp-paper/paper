@@ -22,7 +22,7 @@ process:
 
 try other way 
 
-(in macbook terminral) Command:scp youngjinseong@youngjinseong.local:~/photo.jpg ~/photo.jpg && open ~/photo.jpg
+(in macbook terminral) Command:scp robot@raspberrypi.local:~/photo.jpg ~/photo.jpg && open ~/photo.jpg
 Result: I can check with macbook preview <img width="2592" height="1944" alt="photo" src="https://github.com/user-attachments/assets/52d2f68c-0bd7-4cba-8798-148c140d1bc3" />
 https://github.com/sharp-paper/paper/issues/1#issue-6483816370
 Reason(why not work):I entered command on rasberry pi terminal, not the macbook. to watch photo, I should use macbook terminal
@@ -37,7 +37,7 @@ from vilib import Vilib
 def main():
     Vilib.camera_start(vflip=False, hflip=False)
     Vilib.display(local=False, web=True)
-    print("Enter  http://youngjinseong.local:9000/mjpgz.")
+    print("Enter  http://name.local:9000/mjpgz.")
     print("for quit, press control C.")
     try:
         while True:
@@ -56,15 +56,15 @@ vilib 0.3.20 launching ...
 picamera2 0.3.38
 
 Web display on:
-      http://10.0.0.225:9000/mjpg
+      http://<Raspberrypi_IP>/mjpg
 
 Starting web streaming ...
-Enter  http://youngjinseong.local:9000/mjpgz.
+Enter  http://name.local:9000/mjpgz.
 for quit, press control C.
  * Serving Flask app 'vilib.vilib'
  * Debug mode: off
 
-Enter http://youngjinseong.local:9000/mjpgz.
+Enter http://name.local:9000/mjpgz.
 result:This site can’t be reached
  try safari brower
  works
