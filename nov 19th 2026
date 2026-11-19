@@ -24,6 +24,7 @@ try other way
 
 (in macbook terminral) Command:scp youngjinseong@youngjinseong.local:~/photo.jpg ~/photo.jpg && open ~/photo.jpg
 Result: I can check with macbook preview <img width="2592" height="1944" alt="photo" src="https://github.com/user-attachments/assets/52d2f68c-0bd7-4cba-8798-148c140d1bc3" />
+https://github.com/sharp-paper/paper/issues/1#issue-6483816370
 Reason(why not work):I entered command on rasberry pi terminal, not the macbook. to watch photo, I should use macbook terminal
 
 Second goal:live streaming
