@@ -1,4 +1,4 @@
-project_title:communcate robot caw with raspberry pi
+project_title:communcate robot car with raspberry pi
 
 goal: camera working
 
@@ -37,7 +37,7 @@ from vilib import Vilib
 def main():
     Vilib.camera_start(vflip=False, hflip=False)
     Vilib.display(local=False, web=True)
-    print("Enter  http://name.local:9000/mjpgz.")
+    print("Enter  http://name.local:9000/mjpg.")
     print("for quit, press control C.")
     try:
         while True:
