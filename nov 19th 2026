@@ -1,9 +1,9 @@
-project_title:communcate robot caw with rasberry pi
+project_title:communcate robot caw with raspberry pi
 
 goal: camera working
 
 
-hardware components:rasberry pi 5, sunfounder carmera FPC cable
+hardware components:raspberry pi 5, sunfounder carmera FPC cable
 
 software: 
          language:python3
@@ -16,19 +16,9 @@ process:
                              1920x1080 [32.81 fps - (348, 434)/1928x1080 crop]
                              2592x1944 [15.63 fps - (0, 0)/2592x1944 crop]
        Command:rpicam-jpeg -o photo.jpg --width 2592 --height 1944
-       Result:[0:01:28.640083728] [1912]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
-              [0:01:28.640114509] [1912]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
-             Mode selection for 2592:1944:12:P
-             SGBRG10_CSI2P,640x480/0 - Score: 7832
-              SGBRG10_CSI2P,1296x972/0 - Score: 5536
-              SGBRG10_CSI2P,1920x1080/0 - Score: 4238.67
-               SGBRG10_CSI2P,2592x1944/0 - Score: 1000
-             Stream configuration adjusted
-           [0:01:28.640345577] [1909]  INFO Camera camera.cpp:1216 configuring streams: (0) 2592x1944-YUV420/sYCC (1) 2592x1944-GBRG_PISP_COMP1/RAW
-          [0:01:28.641469464] [1912]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@88000/ov5647@36 - Selected sensor format: 2592x1944-SGBRG10_1X10/RAW - Selected CFE format: 2592x1944-PC1g/RAW
-Still capture image received
-Command: open photo.jpg
-Result:The file /Users/youngjinseong/photo.jpg does not exist.
+       Result: Still capture image received, detected ov5647 sensor and saved photo.jpg
+       Command: open photo.jpg
+       Result:The file /Users/youngjinseong/photo.jpg does not exist.
 
 try other way 
 
@@ -36,7 +26,7 @@ try other way
 Result: I can check with macbook preview <img width="2592" height="1944" alt="photo" src="https://github.com/user-attachments/assets/52d2f68c-0bd7-4cba-8798-148c140d1bc3" />
 Reason(why not work):I entered command on rasberry pi terminal, not the macbook. to watch photo, I should use macbook terminal
 
-Seoncd goal:live streaming
+Second goal:live streaming
 
 Command:nano camera_test.py
 Enter code: import time
@@ -78,6 +68,13 @@ result:This site can’t be reached
  try safari brower
  works
  https://youtube.com/shorts/jBL0OiOdb6Y?feature=share
+
+analyze why chrome doesn't work, but safari works
+enter in network in macbook
+turn on chrome
+changed 404 error
+use Ip address http://x.x.xxxx:9000/mjpg
+finally works
 
 
 
