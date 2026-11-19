@@ -1,6 +1,6 @@
 ##goal:moving forward, backward, right, and left
 ##tech:rasberry pi5 16ram,robot_hat,motors 
-                                        
+  https://youtu.be/6KR0hJkV9PA                                      
 from picarx import Picarx
 import time
 import readchar  
