@@ -1,3 +1,29 @@
 goal:connect raspberry pi with vscode
 reason:terminal is too uncomfortable
-turn on raspberry pi
+
+hardware:raspberry pi
+software:vscode,terminal
+
+process:
+      turn on raspberry pi-hostname@name.local
+      turn on vs code
+      check extension
+      download extension-Visual studio code remote -ssh
+      connect vscode with github
+      open command plaette
+      remote-SSH: Connect to Host... ENTER
+      hostname@name.local
+      result:Could not establish connection to "name.local": No route to host
+      try ip address
+      command:hostname -I
+       result:0.0.0.000
+      try hostname@0.0.0.000
+      result:Could not establish connection to "0.0.0.000": No route to host.
+      check macbook system setting-secuity&privacy-local network-turn onvisual studio code
+      finally works
+*curious:Why does the Raspberry Pi get hot so quickly, but the MacBook doesn't?
+         answer:raspberry pi is too small to release heat,and The Raspberry Pi does not have performance as impressive as a MacBook.
+       make a folder
+       command:mkdir robot_project
+       command:mv camera_test.py my_robot.py my_robot2.py photo.jpg robot_project/
+
