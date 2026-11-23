@@ -30,6 +30,7 @@ process:
 *question:what is the difference between IPadress and .local
 *answer:Ip address is number address and .local is mDNS 
         rewite the sd card with raspberry pi imager
+         command:ssh-keygen -R hostname.local
         comand: ssh hostname@name.local
         result:finally works
          Points to remember:1.instead using IP adress use .local because IP adress might change
