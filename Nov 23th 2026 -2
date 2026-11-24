@@ -1,0 +1,145 @@
+goal:reinstall libraies, and recode the robot, and activating
+hardware:raspberry pi,fpc cable, 5 motors
+softare:vscode,python,shell
+process:
+        connect raspberry pi with vscode
+        fail
+         try terminal first
+        sucess
+        connect rasberry pi with vscdoe
+        success 
+        command:cd ~/
+git clone -b 2.5.x https://github.com/sunfounder/robot-hat.git --depth 1
+cd robot-hat
+sudo python3 install.py
+        command:cd ~/
+git clone https://github.com/sunfounder/vilib.git --depth 1
+cd vilib
+sudo python3 install.py
+        command:cd ~/
+git clone -b 2.1.x https://github.com/sunfounder/picar-x.git --depth 1
+cd picar-x
+sudo pip3 install . --break
+
+         make folder to work
+         robot.py
+        make file to work
+          project1.py
+         write code:
+from picarx import Picarx
+import time
+import readchar
+from vilib import Vilib
+n=0
+print("Enter http://name.local:9000/mjpg.")
+print(" for quit press q")
+Vilib.camera_start(vflip=False, hflip=False, resolution=(320, 240), framerate=30)
+Vilib.display(local=False, web=True)
+
+
+
+px= Picarx()
+while True:
+    key = readchar.readkey().lower()
+    if key == 'w':
+        px.forward(30)
+        time.sleep(0.5)
+        px.stop()
+    elif key == 's':
+        px.backward(30)
+        time.sleep(0.5)
+        px.stop()
+    elif key == 'a':
+        px.turn_left(30)
+        px.forward(30)
+        time.sleep(0.5)
+        px.stop()
+    elif key == 'd':
+        px.turn_right(30)
+        px.forward(30)
+        time.sleep(0.5)
+        px.stop()
+    elif key == 'i':
+        n += 10
+        px.set_cam_tilt_angle(n)
+    elif key == 'k':
+        n -= 10
+        px.set_cam_tilt_angle(n)
+    elif key == 'j':
+        n -= 10
+        px.set_cam_pan_angle(n)
+    elif key == 'l':
+        n += 10
+        px.set_cam_pan_angle(n)
+    elif key == 'q':
+        Vilib.camera_stop()
+        break
+    else:
+        px.stop()
+test-https://youtube.com/shorts/Q-0olTYw5Fg?feature=share
+cable:pan(left,right)-P0, Tilt(up,down)-P1, steering:P2
+fpc cable connect to Cam/disp 0 at raspberry pi
+
+probelm:left and right works go forward, not left or right
+
+solution:1.the cable P2 is misconnected it is connected in reverse
+          2.debug the code
+
+from picarx import Picarx
+import time
+import readchar
+from vilib import Vilib
+n=0
+print("Enter http://name.local:9000/mjpg.")
+print(" for quit press q")
+Vilib.camera_start(vflip=False, hflip=False)
+Vilib.display(local=False, web=True)
+
+
+
+px= Picarx()
+while True:
+    key = readchar.readkey().lower()
+    if key == 'w':
+        px.set_dir_servo_angle(0)
+        px.forward(-30)
+        time.sleep(0.5)
+        px.stop()
+    elif key == 's':
+        px.set_dir_servo_angle(0)
+        px.forward(30)
+        time.sleep(0.5)
+        px.stop()
+    elif key == 'a':
+        px.set_dir_servo_angle(-60)
+        px.forward(-30)
+        time.sleep(0.5)
+        px.stop()
+    elif key == 'd':
+        px.set_dir_servo_angle(60)
+        px.forward(-30)
+        time.sleep(0.5)
+        px.stop()
+    elif key == 'i':
+        n += 10
+        px.set_cam_tilt_angle(n)
+    elif key == 'k':
+        n -= 10
+        px.set_cam_tilt_angle(n)
+    elif key == 'j':
+        n -= 10
+        px.set_cam_pan_angle(n)
+    elif key == 'l':
+        n += 10
+        px.set_cam_pan_angle(n)
+    elif key == 'q':
+        Vilib.camera_close()
+        break
+    else:
+        px.stop()
+
+test-https://youtube.com/shorts/98mevoo6uBQ?feature=share
+
+
+
+
